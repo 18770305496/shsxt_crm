@@ -1,0 +1,51 @@
+流失条件:
+1)用户注册时间超过6个月
+    sql:
+    SELECT
+    c.`name`,
+    c.id,
+    c.create_date
+    FROM
+    t_customer AS c
+    WHERE
+    c.is_valid = 1
+    AND
+    DATE_ADD(c.create_date,INTERVAL 6 MONTH) < NOW()
+
+2)用户最后一单超过6个月
+    正向思维: 找到用户 -> 通过用户id找到订单 -> 通过订单找到最后一单的时间 -> 比对时间间隔
+    问题: 假如用户根本就没有订单交易,就无法获取用户的最后一单时间
+
+    反向思维: 先找到有效用户 -> 从总体中排除掉有效用户 -> 剩余就是流失用户
+    SELECT
+    DISTINCT co.cus_id
+    FROM
+    t_customer_order AS co
+    WHERE
+    co.is_valid = 1
+    AND
+    DATE_ADD(co.order_date,INTERVAL 6 MONTH) > NOW()
+
+===============================================================
+    完整sql:
+
+    SELECT
+    c.*
+    FROM
+    t_customer AS c
+    WHERE
+    c.is_valid = 1 AND
+    DATE_ADD(c.create_date,INTERVAL 6 MONTH) < NOW() AND
+    c.id NOT IN (
+    SELECT
+    DISTINCT co.cus_id
+    FROM
+    t_customer_order AS co
+    WHERE
+    co.is_valid = 1
+    AND
+    DATE_ADD(co.order_date,INTERVAL 6 MONTH) > NOW()
+    ) AND
+    c.state = 0
+
+====================================================================

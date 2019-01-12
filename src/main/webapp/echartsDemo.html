@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+//    var option = {
+//        title: {
+//            text: '课程展示'
+//        },
+//        tooltip: {},
+//        legend: {
+//            data:['课程']
+//        },
+//        xAxis: {
+//            data: ["Java","前端","大数据","Python"]
+//        },
+//        yAxis: {},
+//        series: [{
+//            name: '课程',
+//            type: 'bar',
+//            data: [5, 20, 36, 10]
+//        }]
+//    };
+
+//    option = {
+//        xAxis: {
+//            type: 'category',
+//            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+//        },
+//        yAxis: {
+//            type: 'value'
+//        },
+//        series: [{
+//            data: [820, 932, 901, 934, 1290, 1330, 1320],
+//            type: 'line'
+//        }]
+//    };
+
+    myChart.title = '客户构成分析';
+
+    option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data:['合作伙伴','大客户','战略合作伙伴', '普通客户', '重点开发客户']
+        },
+        series: [
+            {
+                name:'数据来源',
+                type:'pie',
+                selectedMode: 'single',
+                radius: [0, '30%'],
+
+                label: {
+                    normal: {
+                        position: 'inner'
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:335, name:'大客户'},
+                    {value:679, name:'重点合作伙伴'},
+                    {value:1548, name:'斩落客户'}
+                ]
+            },
+            {
+                name:'数据来源',
+                type:'pie',
+                radius: ['40%', '55%'],
+                label: {
+                    normal: {
+                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#eee',
+                        borderColor: '#aaa',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                            a: {
+                                color: '#999',
+                                lineHeight: 22,
+                                align: 'center'
+                            },
+                            hr: {
+                                borderColor: '#aaa',
+                                width: '100%',
+                                borderWidth: 0.5,
+                                height: 0
+                            },
+                            b: {
+                                fontSize: 16,
+                                lineHeight: 33
+                            },
+                            per: {
+                                color: '#eee',
+                                backgroundColor: '#334455',
+                                padding: [2, 4],
+                                borderRadius: 2
+                            }
+                        }
+                    }
+                },
+                data:[
+                    {value:335, name:'大客户'},
+                    {value:310, name:'重点开发伙伴'},
+                    {value:234, name:'斩落合作'}
+                ]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

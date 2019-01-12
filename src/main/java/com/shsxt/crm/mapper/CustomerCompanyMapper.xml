@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsxt.crm.dao.CustomerCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.shsxt.crm.po.CustomerCompany" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="company_code" property="companyCode" jdbcType="VARCHAR" />
+    <result column="company_name_cn" property="companyNameCn" jdbcType="VARCHAR" />
+    <result column="company_short_name" property="companyShortName" jdbcType="VARCHAR" />
+    <result column="company_type" property="companyType" jdbcType="CHAR" />
+    <result column="company_class" property="companyClass" jdbcType="CHAR" />
+    <result column="parent_sys_no" property="parentSysNo" jdbcType="BIGINT" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="comments" property="comments" jdbcType="VARCHAR" />
+    <result column="yn" property="yn" jdbcType="CHAR" />
+    <result column="ts" property="ts" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_pin" property="createPin" jdbcType="VARCHAR" />
+    <result column="update_pin" property="updatePin" jdbcType="VARCHAR" />
+    <result column="versions" property="versions" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, company_code, company_name_cn, company_short_name, company_type, company_class, 
+    parent_sys_no, country, city, address, contact, phone, mobile, fax, email, comments, 
+    yn, ts, create_time, create_pin, update_pin, versions
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer_company
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_customer_company
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shsxt.crm.po.CustomerCompany" >
+    insert into t_customer_company (id, company_code, company_name_cn, 
+      company_short_name, company_type, company_class, 
+      parent_sys_no, country, city, 
+      address, contact, phone, 
+      mobile, fax, email, 
+      comments, yn, ts, create_time, 
+      create_pin, update_pin, versions
+      )
+    values (#{id,jdbcType=INTEGER}, #{companyCode,jdbcType=VARCHAR}, #{companyNameCn,jdbcType=VARCHAR}, 
+      #{companyShortName,jdbcType=VARCHAR}, #{companyType,jdbcType=CHAR}, #{companyClass,jdbcType=CHAR}, 
+      #{parentSysNo,jdbcType=BIGINT}, #{country,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{comments,jdbcType=VARCHAR}, #{yn,jdbcType=CHAR}, #{ts,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createPin,jdbcType=VARCHAR}, #{updatePin,jdbcType=VARCHAR}, #{versions,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shsxt.crm.po.CustomerCompany" >
+    insert into t_customer_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="companyCode != null" >
+        company_code,
+      </if>
+      <if test="companyNameCn != null" >
+        company_name_cn,
+      </if>
+      <if test="companyShortName != null" >
+        company_short_name,
+      </if>
+      <if test="companyType != null" >
+        company_type,
+      </if>
+      <if test="companyClass != null" >
+        company_class,
+      </if>
+      <if test="parentSysNo != null" >
+        parent_sys_no,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+      <if test="yn != null" >
+        yn,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createPin != null" >
+        create_pin,
+      </if>
+      <if test="updatePin != null" >
+        update_pin,
+      </if>
+      <if test="versions != null" >
+        versions,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="companyCode != null" >
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyNameCn != null" >
+        #{companyNameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="companyShortName != null" >
+        #{companyShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        #{companyType,jdbcType=CHAR},
+      </if>
+      <if test="companyClass != null" >
+        #{companyClass,jdbcType=CHAR},
+      </if>
+      <if test="parentSysNo != null" >
+        #{parentSysNo,jdbcType=BIGINT},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="yn != null" >
+        #{yn,jdbcType=CHAR},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPin != null" >
+        #{createPin,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePin != null" >
+        #{updatePin,jdbcType=VARCHAR},
+      </if>
+      <if test="versions != null" >
+        #{versions,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.po.CustomerCompany" >
+    update t_customer_company
+    <set >
+      <if test="companyCode != null" >
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyNameCn != null" >
+        company_name_cn = #{companyNameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="companyShortName != null" >
+        company_short_name = #{companyShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null" >
+        company_type = #{companyType,jdbcType=CHAR},
+      </if>
+      <if test="companyClass != null" >
+        company_class = #{companyClass,jdbcType=CHAR},
+      </if>
+      <if test="parentSysNo != null" >
+        parent_sys_no = #{parentSysNo,jdbcType=BIGINT},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="yn != null" >
+        yn = #{yn,jdbcType=CHAR},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createPin != null" >
+        create_pin = #{createPin,jdbcType=VARCHAR},
+      </if>
+      <if test="updatePin != null" >
+        update_pin = #{updatePin,jdbcType=VARCHAR},
+      </if>
+      <if test="versions != null" >
+        versions = #{versions,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.po.CustomerCompany" >
+    update t_customer_company
+    set company_code = #{companyCode,jdbcType=VARCHAR},
+      company_name_cn = #{companyNameCn,jdbcType=VARCHAR},
+      company_short_name = #{companyShortName,jdbcType=VARCHAR},
+      company_type = #{companyType,jdbcType=CHAR},
+      company_class = #{companyClass,jdbcType=CHAR},
+      parent_sys_no = #{parentSysNo,jdbcType=BIGINT},
+      country = #{country,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR},
+      yn = #{yn,jdbcType=CHAR},
+      ts = #{ts,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_pin = #{createPin,jdbcType=VARCHAR},
+      update_pin = #{updatePin,jdbcType=VARCHAR},
+      versions = #{versions,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="deleteBatch">
+    UPDATE t_customer_company SET yn='N' WHERE id in (
+    <foreach collection="array" item="item" separator=",">
+        #{item}
+    </foreach>
+    )
+   </update>
+  <select id="queryByParams" parameterType="customerCompanyQuery" resultMap="BaseResultMap">
+    SELECT * from t_customer_company
+    where yn='Y'
+    <where>
+      <if test="phone != null &amp; phone != '' " >
+        phone = #{phone,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null &amp; mobile != '' " >
+        mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="companyCode != null &amp; companyCode != '' " >
+        company_code = #{companyCode,jdbcType=VARCHAR}
+      </if>
+      <if test="companyNameCn != null &amp; companyNameCn != '' " >
+        company_name_cn = #{companyNameCn,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>
