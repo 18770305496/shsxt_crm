@@ -8,4 +8,4 @@
 </script>
 <script src="${ctx}/js/jquery.cookie.js"></script>
 <script src="${ctx}/js/common.js"></script>
-<script src="${ctx}/js/base.js?versin=12"></script>
+<script src="${ctx}/js/base.js?versin=1"></script>

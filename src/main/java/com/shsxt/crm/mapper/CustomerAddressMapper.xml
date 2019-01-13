@@ -220,4 +220,19 @@
       versions = #{versions,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="queryByParams" parameterType="customerAddressQuery" resultMap="BaseResultMap">
+    SELECT * from t_customer_address
+    where yn='Y'
+
+    <if test="mobile != null &amp; mobile != '' " >
+      and mobile = #{mobile,jdbcType=VARCHAR}
+    </if>
+    <if test="name != null &amp; name != '' " >
+      and name = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="phone != null &amp; phone != '' " >
+      and phone = #{phone,jdbcType=VARCHAR}
+    </if>
+
+  </select>
 </mapper>

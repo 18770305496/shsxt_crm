@@ -1,7 +1,7 @@
 <html>
 <head>
 <#include "common.ftl" >
-<script type="text/javascript" src="${ctx}/js/customer.company.js?version=1.0"></script>
+<script type="text/javascript" src="${ctx}/js/customer.company.js?version=2.0"></script>
 </head>
 <body style="margin: 1px">
 <table id="dg"  class="easyui-datagrid"

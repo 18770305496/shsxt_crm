@@ -5,7 +5,9 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.codec.binary.Base64;
 
-
+/**
+ * 加密
+ */
 public class Md5Util {
 	
 	public static String  encode(String msg){

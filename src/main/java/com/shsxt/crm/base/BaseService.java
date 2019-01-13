@@ -76,7 +76,7 @@ public abstract class BaseService<T> {
      * @return
      * @throws DataAccessException
      */
-    public  Integer update(T entity) throws DataAccessException{
+    public Integer update(T entity) throws DataAccessException{
         return baseDao.update(entity);
     }
 

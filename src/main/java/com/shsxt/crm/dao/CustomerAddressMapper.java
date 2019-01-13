@@ -1,11 +1,14 @@
 package com.shsxt.crm.dao;
 
+import com.shsxt.crm.base.BaseDao;
 import com.shsxt.crm.po.CustomerAddress;
+import org.springframework.stereotype.Repository;
 
-public interface CustomerAddressMapper {
+@Repository
+public interface CustomerAddressMapper extends BaseDao<CustomerAddress>{
     int deleteByPrimaryKey(Integer id);
 
-    int insert(CustomerAddress record);
+    boolean insert(CustomerAddress record);
 
     int insertSelective(CustomerAddress record);
 
