@@ -98,7 +98,6 @@
         <constructor-arg name="poolConfig" ref="jedisPoolConfig" />
     </bean>
 
-
     <!-- redisTemplate 配置 -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connection-factory-ref="jedisConnFactory"  >

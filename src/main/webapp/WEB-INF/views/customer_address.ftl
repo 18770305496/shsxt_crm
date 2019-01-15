@@ -70,16 +70,17 @@
                 </td>
             </tr>
             <tr>
+                <td>客户主键： </td>
+                <td><input type="text" id="customerId" name="customerId"
+                class="easyui-validatebox" />&nbsp;
+                    <font color="red">*</font></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>手机号码： </td>
                 <td>
                     <input class="easyui-validatebox"
                            id="phone" name="phone" required="true">
                     &nbsp;<font color="red">*</font>
                 </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>版本号： </td>
-                <td><input type="text" id="versions" name="versions"
-                           class="easyui-validatebox" />&nbsp;<font color="red">*</font></td>
             </tr>
             <tr>
                 <td>街道: </td>
@@ -123,6 +124,11 @@
                 <td><input type="text" id="updatePin" name="updatePin"
                            class="easyui-validatebox" required="true"/>&nbsp;<font
                         color="red">*</font></td>
+            </tr>
+            <tr>
+                <td>版本号： </td>
+                <td><input type="text" id="versions" name="versions"
+                           class="easyui-validatebox" />&nbsp;<font color="red">*</font></td>
             </tr>
         </table>
     </form>

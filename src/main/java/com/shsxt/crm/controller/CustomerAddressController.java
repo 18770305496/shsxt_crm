@@ -65,9 +65,9 @@ public class CustomerAddressController extends BaseController{
      * @param ids
      * @return
      */
-    @RequestMapping("deleteCustomerBatch")
+    @RequestMapping("deleteAddressBatch")
     @ResponseBody
-    public ResultInfo deleteCustomerBatch(Integer[] ids){
+    public ResultInfo deleteAddressBatch(Integer[] ids){
         customerAddressService.deleteBatch(ids);
         return success(CrmConstant.OPS_SUCCESS_MSG);
     }

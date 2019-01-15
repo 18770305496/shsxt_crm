@@ -305,7 +305,7 @@
     <where>
       <if test="phone != null &amp; phone != '' " >
         phone = #{phone,jdbcType=VARCHAR}
-      </if>
+    </if>
       <if test="mobile != null &amp; mobile != '' " >
         mobile = #{mobile,jdbcType=VARCHAR}
       </if>

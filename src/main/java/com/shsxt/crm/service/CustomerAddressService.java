@@ -25,9 +25,10 @@ public class CustomerAddressService extends BaseService<CustomerAddress> {
         if(customerAddress.getId()==null){
             // 公司主键为空 新增业务
             customerAddress.setCreateTime(new Date());//创建时间
-            customerAddress.setCustomerId(MathUtil.genereateKhCode());//设置主键
             customerAddress.setYn("Y");//设置Yn数据是否有效 Y显示页面
-            AssertUtil.isTrue(customerAddressMapper.insert(customerAddress), CrmConstant.OPS_FAILED_MSG);
+            int i = customerAddressMapper.insert(customerAddress);
+            boolean result = i<1?true:false;
+            AssertUtil.isTrue(result, CrmConstant.OPS_FAILED_MSG);
         }else{
             // 更新业务
             int i=customerAddressMapper.updateByPrimaryKeySelective(customerAddress);

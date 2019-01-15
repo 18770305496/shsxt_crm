@@ -23,6 +23,7 @@
     id, customer_id, name, mobile, address, zip_code, remark, street, areaRegion, phone, 
     yn, ts, create_time, create_pin, update_pin, versions
   </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -219,6 +220,13 @@
       update_pin = #{updatePin,jdbcType=VARCHAR},
       versions = #{versions,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="deleteBatch">
+    UPDATE t_customer_address SET yn='N' WHERE id in (
+    <foreach collection="array" item="item" separator=",">
+      #{item}
+    </foreach>
+    )
   </update>
   <select id="queryByParams" parameterType="customerAddressQuery" resultMap="BaseResultMap">
     SELECT * from t_customer_address

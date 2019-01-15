@@ -68,7 +68,7 @@ public class CustomerService extends BaseService<Customer> {
             customer.setState(0);// 未流失
             customer.setIsValid(1);// 有效
             customer.setCreateDate(new Date());//创建时间
-            customer.setKhno(MathUtil.genereateKhCode());// 客户编号
+            customer.setKhno(new Integer(MathUtil.genereateKhCode()).toString());// 客户编号
 
             AssertUtil.isTrue(customerMapper.save(customer)<1, CrmConstant.OPS_FAILED_MSG);
         }else{

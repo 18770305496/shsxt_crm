@@ -19,12 +19,12 @@ function saveOrUpdateCustomer() {
     saveOrUpdateData('fm',ctx + '/customerAddress/saveOrUpdateCompanyAddress','dlg',queryCustomersByParams);
 }
 
-//修改
+//更新
 function openModifyCustomerDialog() {
-    openModifyDialog('dg','fm','dlg','修改公司信息')
+    openModifyDialog('dg','fm','dlg','更新公司信息')
 }
 
 //删除
 function deleteCustomer() {
-    deleteData('dg',ctx+'/customerCompany/deleteCustomerBatch',queryCustomersByParams);
+    deleteData('dg',ctx+'/customerAddress/deleteAddressBatch',queryCustomersByParams);
 }

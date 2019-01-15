@@ -13,12 +13,11 @@ public class MathUtil {
      *
      * @return
      */
-    public static Integer genereateKhCode() {
+    public static String genereateKhCode() {
         SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyyMMddHHmmss");
         String date = datetimeFormat.format(new Date());
         String code = "KH" + date + random(100, 999);
-        Integer a = Integer.valueOf(code);
-        return a;
+        return code;
     }
 
     /**
