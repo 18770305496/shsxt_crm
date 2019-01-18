@@ -300,21 +300,21 @@
     )
    </update>
   <select id="queryByParams" parameterType="customerCompanyQuery" resultMap="BaseResultMap">
-    SELECT * from t_customer_company
-    where yn='Y'
-    <where>
-      <if test="phone != null &amp; phone != '' " >
-        phone = #{phone,jdbcType=VARCHAR}
+  SELECT * from t_customer_company
+  where yn='Y'
+  <where>
+    <if test="phone != null &amp; phone != '' " >
+      phone = #{phone,jdbcType=VARCHAR}
     </if>
-      <if test="mobile != null &amp; mobile != '' " >
-        mobile = #{mobile,jdbcType=VARCHAR}
-      </if>
-      <if test="companyCode != null &amp; companyCode != '' " >
-        company_code = #{companyCode,jdbcType=VARCHAR}
-      </if>
-      <if test="companyNameCn != null &amp; companyNameCn != '' " >
-        company_name_cn = #{companyNameCn,jdbcType=VARCHAR}
-      </if>
-    </where>
+    <if test="mobile != null &amp; mobile != '' " >
+      mobile = #{mobile,jdbcType=VARCHAR}
+    </if>
+    <if test="companyCode != null &amp; companyCode != '' " >
+      company_code = #{companyCode,jdbcType=VARCHAR}
+    </if>
+    <if test="companyNameCn != null &amp; companyNameCn != '' " >
+      company_name_cn = #{companyNameCn,jdbcType=VARCHAR}
+    </if>
+  </where>
   </select>
 </mapper>
