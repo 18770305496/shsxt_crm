@@ -14,7 +14,6 @@
         <th field="type" width="80" align="center">日志类型</th>
         <th field="title" width="70" align="center">日志标题</th>
         <th field="createBy" width="80" align="center">创建者</th>
-        <th field="createDate" width="100" align="center">创建时间</th>
         <th field="remoteAddr" width="60" align="center">操作IP地址</th>
         <th field="userAgent" width="100" align="center">用户代理</th>
         <th field="requestUri" width="100" align="center">请求URI</th>
@@ -25,8 +24,10 @@
     <tr>
         <th field="params" width="100" align="center">操作提交的数据</th>
         <th field="exception" width="50" align="center">异常信息</th>
+        <th field="createDate" width="100" align="center">创建时间</th>
     </tr>
     </thead>
+
 </table>
 <div id="tb">
     <a href="javascript:openAddCustomerDialog()"
@@ -39,7 +40,13 @@
     日志标题:<input type="text" id="title">
     创建者: <input type="text" id="createBy"/>
     用户代理:<input type="text" id="userAgent"/>
-    <a href="javascript:queryCustomersByParams()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+    <div>
+        <label>日期范围：&nbsp;</label><input id="beginDate" name="beginDate" type="text" readonly="readonly" maxlength="20" class="input-mini Wdate"
+            value="<fmt:formatDate value="${log.beginDate}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+        <label>&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input id="endDate" name="endDate" type="text" readonly="readonly" maxlength="20" class="input-mini Wdate"
+            value="<fmt:formatDate value="${log.endDate}" pattern="yyyy-MM-dd"/>" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});"/>
+    </div>
+    <a href="javascript:queryCustomersByParams()" class="easyui-linkbutton" iconCls="icon-search" plain="true">查询</a>
 </div>
 
 

@@ -12,5 +12,8 @@ public class CrmConstant {
     public static final String USER_PERMISSIONS="permissions";
 
 
+    // 日志类型（1：访问日志；2：错误日志）
+    public static final String TYPE_ACCESS = "1";
+    public static final String TYPE_EXCEPTION = "2";
 
 }

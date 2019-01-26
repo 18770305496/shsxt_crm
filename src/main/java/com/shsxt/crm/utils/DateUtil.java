@@ -22,7 +22,21 @@ public class DateUtil {
     public static String formatDate(Date date) {
         return dateFormat.format(date);
     }
-    
+
+    /**
+	 * 转换为时间（天,时:分:秒.毫秒）
+	 * @param timeMillis
+	 * @return
+	 */
+	public static String formatDateTimes(long timeMillis){
+		long day = timeMillis/(24*60*60*1000);
+		long hour = (timeMillis/(60*60*1000)-day*24);
+		long min = ((timeMillis/(60*1000))-day*24*60-hour*60);
+		long s = (timeMillis/1000-day*24*60*60-hour*60*60-min*60);
+		long sss = (timeMillis-day*24*60*60*1000-hour*60*60*1000-min*60*1000-s*1000);
+		return (day>0?day+",":"")+hour+":"+min+":"+s+"."+sss;
+	}
+
     // 格式化字符串日期与时间
     public static Date parseDatetime(String date) {
         try {

@@ -1,6 +1,5 @@
 package com.shsxt.crm.base;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.shsxt.crm.utils.AssertUtil;

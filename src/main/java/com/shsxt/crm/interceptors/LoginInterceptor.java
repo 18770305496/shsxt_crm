@@ -23,6 +23,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
+
+        System.out.println("preHandler======LoginInterceptor");
         /***
          * 判断用户是否登陆
          * */
